@@ -1,9 +1,13 @@
+//just changed blob into blob1
+
+
+//make it scaled
 //animation of my name
 // put blobs at random places , check to see if it's on white
 //work on move
 // maybe change blobs into arraylist
 //it takes time dw . this is for fun:)
-Blob [] blob;
+Blob [] blob1;
 
 public void setup()
 {
@@ -11,50 +15,44 @@ public void setup()
 	textAlign(CENTER);
 	textSize(80);
 
-	blob = new Blob[750];
+	blob1 = new Blob[250];
 
 
-	for(int i = 0 ; i<blob.length ; i++)
-	{
-		int randX,randY;
-		randX = (int)(Math.random()*205)+190;
-		randY = (int)(Math.random()*80)+40;
+	for(int i = 0 ; i<blob1.length ; i++)
+		blob1[i] = new Blob(0,0); //random point for initialization
 
-			blob[i] = new Blob(randX,randY);
-
-
-	}
 }
 
 public void draw()
 {
 	background(0);
 	fill(1);
-	textSize(60);
-	text("FANNY" , 300,100);
-	textSize(20);
-	text(mouseX + "   " + mouseY , 500,40);
+	textSize(80);
+	text("JOSH" , 300,125);
 
-	for(int i = 0 ; i< blob.length ; i++)
+
+	for(int i = 0 ; i< blob1.length ; i++)
 	{
 		
-		if(get(blob[i].getX(), blob[i].getY()) != color(0,0,0))
+		if(get(blob1[i].getX(), blob1[i].getY()) != color(0,0,0))
 		{
-			blob[i].show();
-			blob[i].move();	
+			blob1[i].show();
+			blob1[i].move();	
 				
 		}
 		
 	}
-	for(int i = 0 ; i< blob.length ; i++)
+
+
+	for(int i = 0 ; i< blob1.length ; i++)
 	{
-		int randX,randY;
-		randX = (int)(Math.random()*205)+190;
-		randY = (int)(Math.random()*80)+40;		
-		if(get(blob[i].getX(), blob[i].getY()) != color(1,1,1))
+		int randX2,randY2;
+		randX2 = (int)(Math.random()*205)+190;
+		randY2 = (int)(Math.random()*105)+65;		
+		if(get(blob1[i].getX(), blob1[i].getY()) != color(1,1,1))
 		{
-			blob[i].setX(randX);
-			blob[i].setY(randY);
+			blob1[i].setX(randX2);
+			blob1[i].setY(randY2);
 				
 		}
 		
@@ -63,31 +61,29 @@ public void draw()
 }
 
 
-
  class Blob  
  {     
  	private int myX, myY;
-
 
  	public Blob (int x, int y)
  	{
  		myX = x+ (int)(Math.random()*7) -3;
  		myY = y+ (int)(Math.random()*7) -3;
- 
- 	}   
 
+ 	}   
 
 
  	public void show()
  	{
- 		fill((int)(Math.random()*255),(int)(Math.random()*255),(int)(Math.random()*255));
- 		ellipse(myX,myY,7,7);
- 		
+ 		fill(255,0,0);
+ 		//fill(255,0,0);
+ 		ellipse(myX,myY,7,7);	
  		
  	}
+
+
  	public void move()
  	{
-
  		if(get(myX,myY) != color(0,0,0))
  		{
  			myX = myX  + (int)(Math.random()*3) -1;
@@ -95,8 +91,11 @@ public void draw()
  		}
 
  	}
+
+
  	public void setX(int x){myX = x;}
  	public void setY(int y){myY = y;}
  	public int getX(){return myX;}
  	public int getY(){return myY;}
+
  }    
